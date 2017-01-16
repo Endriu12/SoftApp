@@ -1,0 +1,24 @@
+c:\users\user\documents\visual studio 2010\Projects\TestApp\TestApp\obj\x86\Release\TestApp.Form1.resources
+c:\users\user\documents\visual studio 2010\Projects\TestApp\TestApp\obj\x86\Release\TestApp.Properties.Resources.resources
+c:\users\user\documents\visual studio 2010\Projects\TestApp\TestApp\obj\x86\Release\TestApp.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2010\Projects\TestApp\TestApp\bin\Release\TestApp.exe
+c:\users\user\documents\visual studio 2010\Projects\TestApp\TestApp\bin\Release\TestApp.pdb
+c:\users\user\documents\visual studio 2010\Projects\TestApp\TestApp\obj\x86\Release\TestApp.exe
+c:\users\user\documents\visual studio 2010\Projects\TestApp\TestApp\obj\x86\Release\TestApp.pdb
+C:\Users\User\Documents\Visual Studio 2010\Projects\TestApp\TestApp\obj\x86\Release\TestApp.csprojResolveAssemblyReference.cache
+C:\Users\Andriu\Desktop\TestApp-master\TestApp\obj\x86\Release\TestApp.exe
+C:\Users\Andriu\Desktop\TestApp-master\TestApp\obj\x86\Release\TestApp.csprojResolveAssemblyReference.cache
+C:\Users\Andriu\Desktop\TestApp-master\TestApp\obj\x86\Release\TestApp.Form1.resources
+C:\Users\Andriu\Desktop\TestApp-master\TestApp\obj\x86\Release\TestApp.Properties.Resources.resources
+C:\Users\Andriu\Desktop\TestApp-master\TestApp\obj\x86\Release\TestApp.csproj.GenerateResource.Cache
+C:\Users\Andriu\Desktop\TestApp-master\TestApp\bin\Release\TestApp.exe
+C:\Users\Andriu\Desktop\TestApp-master\TestApp\bin\Release\TestApp.pdb
+C:\Users\Andriu\Desktop\TestApp-master\TestApp\obj\x86\Release\TestApp.pdb
+C:\Users\User\Desktop\MyProgram-master\TestApp\obj\x86\Release\TestApp.exe
+C:\Users\User\Desktop\MyProgram-master\TestApp\obj\x86\Release\TestApp.pdb
+C:\Users\User\Desktop\MyProgram-master\TestApp\bin\Release\TestApp.exe
+C:\Users\User\Desktop\MyProgram-master\TestApp\bin\Release\TestApp.pdb
+C:\Users\User\Desktop\MyProgram-master\TestApp\obj\x86\Release\TestApp.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\MyProgram-master\TestApp\obj\x86\Release\TestApp.Properties.Resources.resources
+C:\Users\User\Desktop\MyProgram-master\TestApp\obj\x86\Release\TestApp.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\MyProgram-master\TestApp\obj\x86\Release\TestApp.TortoiseYukon.resources
