@@ -23,7 +23,8 @@ namespace TestApp
         public static extern bool SetForegroundWindow(IntPtr hWnd);
         const int WM_CHAR = 0x0102;
         string path = @"password.txt";
-        string program = "TortoiseGit -  git CLI stdin wrapper";
+        string difference = @"YourVersion.txt";
+  //      string program = "TortoiseGit -  git CLI stdin wrapper";
         string childwindow = "Edit";
 
 
@@ -79,17 +80,24 @@ namespace TestApp
             {
                 str += streamReader.ReadLine(); //The variable str row to record the contents of the file
             }
-            IntPtr hWnd = FindWindow(null, program);
+           
+            string[] readText = File.ReadAllLines(difference);
+            foreach (string s in readText)
+            {
+                IntPtr hWnd = FindWindow(null, s);
+            
             if (hWnd.Equals(IntPtr.Zero))
                 {
                    
                 }
+            
                 else  {
                     IntPtr hWndEdit = FindWindowEx(hWnd, 0, childwindow, null);
                     SetForegroundWindow(hWnd);
                     SendKeys.SendWait(str);
                     SendKeys.SendWait("~");//enter 
                 }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
