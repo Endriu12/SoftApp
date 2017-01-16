@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
+using TestApp.Properties;
 
 
 namespace TestApp
@@ -23,7 +24,7 @@ namespace TestApp
         public static extern bool SetForegroundWindow(IntPtr hWnd);
         const int WM_CHAR = 0x0102;
         string path = @"password.txt";
-        string difference = @"YourVersion.txt";
+      //  string difference = @"YourVersion.txt";
   //      string program = "TortoiseGit -  git CLI stdin wrapper";
         string childwindow = "Edit";
 
@@ -62,10 +63,10 @@ namespace TestApp
             FileInfo file = new FileInfo(path);
             write_text = file.AppendText(); //if the file does not exist it will be created
             write_text.WriteLine(textBox1.Text); 
-            write_text.Close(); 
-
+            write_text.Close();
+            int timerT = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["timer"]);
             Timer tmrShow = new Timer();
-            tmrShow.Interval = 5000; // 5 
+            tmrShow.Interval = timerT; // 5 
             tmrShow.Tick += tmrShow_Tick; // event
             tmrShow.Enabled = true;//timer start
 
@@ -80,11 +81,13 @@ namespace TestApp
             {
                 str += streamReader.ReadLine(); //The variable str row to record the contents of the file
             }
-           
-            string[] readText = File.ReadAllLines(difference);
-            foreach (string s in readText)
-            {
-                IntPtr hWnd = FindWindow(null, s);
+
+           string difference = System.Configuration.ConfigurationManager.AppSettings["nameyourtortoise"];
+
+           // string[] readText = File.ReadAllLines(difference);
+           // foreach (string s in readText)
+          //  {
+                IntPtr hWnd = FindWindow(null, difference);
             
             if (hWnd.Equals(IntPtr.Zero))
                 {
@@ -98,7 +101,7 @@ namespace TestApp
                     SendKeys.SendWait("~");//enter 
                 }
             }
-        }
+  
 
         private void button2_Click(object sender, EventArgs e)
         {
