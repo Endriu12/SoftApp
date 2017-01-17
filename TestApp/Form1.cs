@@ -24,94 +24,91 @@ namespace TestApp
         public static extern bool SetForegroundWindow(IntPtr hWnd);
         const int WM_CHAR = 0x0102;
         string path = @"password.txt";
-      //  string difference = @"YourVersion.txt";
-  //      string program = "TortoiseGit -  git CLI stdin wrapper";
+        //  string difference = @"YourVersion.txt";
+        //  string program = "TortoiseGit -  git CLI stdin wrapper";
         string childwindow = "Edit";
 
 
         public TortoiseYukon()
         {
             InitializeComponent();
+            // this.Resize += new System.EventHandler(this.TortoiseYukon_Resize);
+
         }
 
-        private void showProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            e.Cancel = true;
+            // ShowInTaskbar = false;
+            Hide();
+        }
+
+        private void showProgramToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Show();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void Form1_Move(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Minimized)
-            {
-                this.Hide();
-            }
-        }
-
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            this.Show();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            StreamWriter write_text;  //Class file recording
-            FileInfo file = new FileInfo(path);
-            write_text = file.AppendText(); //if the file does not exist it will be created
-            write_text.WriteLine(textBox1.Text); 
-            write_text.Close();
+            StreamWriter vvod = new StreamWriter(path, false);
+            vvod.WriteLine(textBox1.Text);
+            vvod.Close();
+            this.Hide();
             int timerT = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["timer"]);
             Timer tmrShow = new Timer();
             tmrShow.Interval = timerT; // 5 
             tmrShow.Tick += tmrShow_Tick; // event
             tmrShow.Enabled = true;//timer start
-
             this.Hide();
         }
 
         private void tmrShow_Tick(object sender, EventArgs e)
         {
-            StreamReader streamReader = new StreamReader(path); //Open the file for reading
-            string str = ""; 
-            while (!streamReader.EndOfStream) 
-            {
-                str += streamReader.ReadLine(); //The variable str row to record the contents of the file
-            }
-
-           string difference = System.Configuration.ConfigurationManager.AppSettings["nameyourtortoise"];
-
-           // string[] readText = File.ReadAllLines(difference);
-           // foreach (string s in readText)
-          //  {
-                IntPtr hWnd = FindWindow(null, difference);
-            
+            string program = System.Configuration.ConfigurationManager.AppSettings["program"];
+            IntPtr hWnd = FindWindow(null, program);
             if (hWnd.Equals(IntPtr.Zero))
+            { }
+            else
+            {
+                StreamReader streamReader = new StreamReader(path); //Open the file for reading
+                string str = "";
+                while (!streamReader.EndOfStream)
                 {
-                   
+                    str += streamReader.ReadLine(); //The variable str row to record the contents of the file
                 }
-            
-                else  {
-                    IntPtr hWndEdit = FindWindowEx(hWnd, 0, childwindow, null);
-                    SetForegroundWindow(hWnd);
-                    SendKeys.SendWait(str);
-                    SendKeys.SendWait("~");//enter 
-                }
+                IntPtr hWndEdit = FindWindowEx(hWnd, 0, childwindow, null);
+                SetForegroundWindow(hWnd);
+                SendKeys.SendWait(str);
+                SendKeys.SendWait("~");//enter 
             }
-  
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-        } 
+        }
+
+        private void TortoiseYukon_Shown(object sender, EventArgs e)
+        {
+            string[] array = File.ReadAllLines(path);
+            if (array.Length != 0)
+            {
+                Hide();
+            }
+        }
+
+       
+
     }
 }

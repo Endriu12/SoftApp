@@ -54,14 +54,14 @@
             this.showProgramToolStripMenuItem.Name = "showProgramToolStripMenuItem";
             this.showProgramToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.showProgramToolStripMenuItem.Text = "Show Program";
-            this.showProgramToolStripMenuItem.Click += new System.EventHandler(this.showProgramToolStripMenuItem_Click);
+            this.showProgramToolStripMenuItem.Click += new System.EventHandler(this.showProgramToolStripMenuItem_Click_1);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
             // 
             // notifyIcon1
             // 
@@ -69,7 +69,6 @@
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "YukonSoftware";
             this.notifyIcon1.Visible = true;
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // textBox1
             // 
@@ -124,7 +123,7 @@
             this.MinimizeBox = false;
             this.Name = "TortoiseYukon";
             this.Text = "YukonSoftware";
-            this.Move += new System.EventHandler(this.Form1_Move);
+            this.Shown += new System.EventHandler(this.TortoiseYukon_Shown);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
