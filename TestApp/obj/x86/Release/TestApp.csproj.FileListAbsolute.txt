@@ -21,5 +21,5 @@ C:\Users\User\Desktop\MyProgram-master\TestApp\bin\Release\TestApp.pdb
 C:\Users\User\Desktop\MyProgram-master\TestApp\obj\x86\Release\TestApp.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\MyProgram-master\TestApp\obj\x86\Release\TestApp.Properties.Resources.resources
 C:\Users\User\Desktop\MyProgram-master\TestApp\obj\x86\Release\TestApp.csproj.GenerateResource.Cache
-C:\Users\User\Desktop\MyProgram-master\TestApp\obj\x86\Release\TestApp.TortoiseYukon.resources
 C:\Users\User\Desktop\MyProgram-master\TestApp\bin\Release\TestApp.exe.config
+C:\Users\User\Desktop\MyProgram-master\TestApp\obj\x86\Release\TestApp.TortoiseYukon.resources

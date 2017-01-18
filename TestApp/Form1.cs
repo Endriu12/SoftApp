@@ -9,10 +9,13 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
 using TestApp.Properties;
+using System.Xml;
 
 
 namespace TestApp
 {
+   
+    
     public partial class TortoiseYukon : Form
     {
         //add method who use WinAPI
@@ -24,16 +27,30 @@ namespace TestApp
         public static extern bool SetForegroundWindow(IntPtr hWnd);
         const int WM_CHAR = 0x0102;
         string path = @"password.txt";
+        string myxmlfile = @"myxml.xml";
         //  string difference = @"YourVersion.txt";
         //  string program = "TortoiseGit -  git CLI stdin wrapper";
         string childwindow = "Edit";
+        string windowl = "label1";
 
 
         public TortoiseYukon()
         {
             InitializeComponent();
-            // this.Resize += new System.EventHandler(this.TortoiseYukon_Resize);
+            LoadEmployees();
+        }
 
+        private void LoadEmployees()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(myxmlfile);
+
+            foreach (XmlNode node in doc.DocumentElement)
+            {
+                string name = node.Attributes[1].Value;
+                string password = node.Attributes[0].Value;
+                listBox1.Items.Add(new Repository(name, password));
+            }
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -82,7 +99,7 @@ namespace TestApp
                     str += streamReader.ReadLine(); //The variable str row to record the contents of the file
                 }
                 IntPtr hWndEdit = FindWindowEx(hWnd, 0, childwindow, null);
-                SetForegroundWindow(hWnd);
+                SetForegroundWindow(hWnd); 
                 SendKeys.SendWait(str);
                 SendKeys.SendWait("~");//enter 
             }
@@ -94,11 +111,6 @@ namespace TestApp
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void TortoiseYukon_Shown(object sender, EventArgs e)
         {
             string[] array = File.ReadAllLines(path);
@@ -106,9 +118,23 @@ namespace TestApp
             {
                 Hide();
             }
+        }    
+
+    }
+    class Repository
+    {
+        public string Name { get; private set; }
+        public string Password { get; private set; }
+
+        public Repository(string name, string password)
+        {
+            Name = name;
+            Password = password;
         }
 
-       
-
+        public override string ToString()
+        {
+            return Password;
+        }
     }
 }
